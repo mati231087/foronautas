@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            position: relative; /* Agregamos posición relativa al body */
+            min-height: 100vh; /* Establecemos una altura mínima del viewport */
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #f2f2f2;
+            z-index: 100;
+        }
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-between; /* Alineación a la izquierda y a la derecha */
+            align-items: center;
+            height: 50px;
+        }
+        .navbar ul.right {
+            justify-content: flex-end; /* Alineación a la derecha */
+        }
+        .navbar ul li {
+            margin-right: 10px;
+        }
+        .navbar ul li:last-child {
+            margin-right: 0;
+        }
+        .navbar ul li a {
+            text-decoration: none;
+        }
+        .content {
+            margin-top: 70px; /* Espacio para la barra de menú */
+            text-align: center;
+            padding-bottom: 100px; /* Agregamos un espacio en la parte inferior para los elementos del pie de página */
+            position: relative; /* Agregamos posición relativa */
+        }
+        .title {
+            font-size: 96px; /* Tamaño de fuente aumentado */
+            margin-bottom: 10px;
+        }
+        .footer {
+            position: absolute; /* Cambiamos la posición a absoluta */
+            bottom: 0; /* Colocamos los elementos al final de la página */
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+        .background-image {
+            position: absolute; /* Establecemos la posición como absoluta */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 25vh; /* Establecemos la altura al 25% de la ventana del navegador */
+            background-image: url('foronautas/project/config/static/foro/img/home-bg.jpg'); /* Reemplaza 'ruta/imagen.jpg' con la ruta de tu imagen de fondo */
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="navbar">
+        <nav>
+            <ul class="right">
+                <li><a href="#">Foro</a></li> 
+                <li><a href= "foronautas/project/apps/usuario/templates/usuario/iniciar-sesion.html" >Iniciar sesión</a></li>
+                <li><a href="foronautas/project/apps/usuario/templates/usuario/registro.html">Registrarse"</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="content">
+        <h1 class="title" style="font-size: 800%;">Entrenautas</h1> <!-- Tamaño de fuente aumentado -->
+        <!-- Resto del contenido de la página -->
+    </div>
+
+    <div class="footer">
+        <ul>
+            <li><a href="#">Acerca de</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </div>
+
+</body>
+</html>
+

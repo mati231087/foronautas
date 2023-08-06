@@ -16,10 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from .views import home
 
 urlpatterns = [
+    path('', home, name='home'),
     path('admin/', admin.site.urls),
     # Otras URLs del proyecto
     path('administrador/', include('apps.administrador.urls')),  # Agrega esta línea para incluir las URLs de la aplicación 'administrador'
-    path('usuario/', include('apps.usuario.urls')),  # Agrega esta línea para incluir las URLs de la aplicación 'usuario'
+    path('usuario/', include('apps.usuario.urls')),
+    path('foro/', include('apps.foro.urls')),
+     # Agrega esta línea para incluir las URLs de la aplicación 'usuario'
 ]
