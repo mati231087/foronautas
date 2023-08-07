@@ -10,13 +10,13 @@ class RegistroForm(UserCreationForm):
     telefono = forms.CharField(max_length=20)
     usuario = forms.CharField(max_length=255)
 
-    def clean_contraseña(self):
-        contraseña = self.cleaned_data.get("contraseña")
-        if not any(char.isupper() for char in contraseña) or not any(char.islower() for char in contraseña):
+    def clean_password1(self):
+        password1 = self.cleaned_data.get("password1")
+        if not any(char.isupper() for char in password1) or not any(char.islower() for char in password1):
             raise forms.ValidationError("La contraseña debe contener al menos una mayúscula y una minúscula.")
-        password_validation.validate_password(self.cleaned_data.get("contraseña"), self.instance)
-        return contraseña
+        password_validation.validate_password(password1, self.instance)
+        return password1
 
     class Meta:
         model = Usuario
-        fields = ['nombre_completo', 'fecha_nacimiento', 'correo_electronico', 'telefono', 'usuario', 'contraseña']
+        fields = UserCreationForm.Meta.fields + ('nombre_completo', 'fecha_nacimiento', 'correo_electronico', 'telefono', 'usuario')

@@ -1,1 +1,28 @@
-HOLA
+<!-- register.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"> <!-- Agrega aquí la ruta correcta a tu archivo de estilos CSS -->
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registro de Usuario</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Registrarse">
+        </form>
+    </div>
+</body>
+</html>
