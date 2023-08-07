@@ -16,14 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .views import home
+from . import views
+from django.views.generic import TemplateView
+
 
 urlpatterns = [
-    path('', home, name='home'),
-    path('admin/', admin.site.urls),
-    # Otras URLs del proyecto
+    path('', views.home, name='home'),
     path('administrador/', include('apps.administrador.urls')),  # Agrega esta línea para incluir las URLs de la aplicación 'administrador'
     path('usuario/', include('apps.usuario.urls')),
     path('foro/', include('apps.foro.urls')),
+    path('about-me/', TemplateView.as_view(template_name='home/about-me.html'), name='about-me'),
      # Agrega esta línea para incluir las URLs de la aplicación 'usuario'
 ]
