@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+{% load static %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -85,7 +87,7 @@
             left: 0;
             width: 100%;
             height: 25vh; /* Establecemos la altura al 25% de la ventana del navegador */
-            background-image: url('foronautas/project/config/static/foro/img/home-bg.jpg'); /* Reemplaza 'ruta/imagen.jpg' con la ruta de tu imagen de fondo */
+            background-image: url("{% static 'foro/img/home-bg.jpg' %}"); /* Reemplaza 'ruta/imagen.jpg' con la ruta de tu imagen de fondo */
             background-size: cover;
             background-position: center;
         }
@@ -125,7 +127,25 @@
         <h1 class="title" style="font-size: 800%;">Entrenautas</h1> <!-- Tamaño de fuente aumentado -->
         <!-- Resto del contenido de la página -->
     </div>
+    <script>
+        fetch('/foro/obtener_temas/')
+            .then(response => response.json())
+            .then(data => {
+                const temas = data.temas;
+                const body = document.querySelector('.content');
+                temas.forEach(tema => {
+                    const titulo = document.createElement('h2');
+                    titulo.textContent = tema.titulo;
+                    body.appendChild(titulo);
 
+                    const contenido = document.createElement('p');
+                    contenido.textContent = tema.contenido;
+                    body.appendChild(contenido);
+
+                    // Agrega aquí la lógica para mostrar los demás campos del tema
+                });
+            });
+    </script>
     <div class="footer">
         <ul>
             <li><a href="{% url 'about-me' %}">About Me</a></li>

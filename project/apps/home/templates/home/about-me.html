@@ -1,22 +1,33 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
 <head>
     <meta charset="UTF-8">
     <title>About Me</title>
+    
+</head>
+<body>
     <style>
-        body {
+        .body {
             font-family: "Comic Sans MS", cursive;
             background-color: black;
             color: white;
             margin: 0;
             padding: 0;
         }
-
+        .body {
+            font-size: 115%
+        }
         .header {
+            position: relative;
             height: 33%;
-            background-image: url("../img/about-me.jpg");
+            background-image: url("{% static 'foro/img/about-me.jpg' %}");
+            background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
+        }
+        .title {
+            text-align: center;
         }
 
         .content {
@@ -30,7 +41,7 @@
             text-align: center;
             margin-left: 12.5%;
             margin-right: 12.5%;
-            margin-top: calc(33% + 1em);
+            margin-top: calc(3% + 1em);
         }
 
         .footer {
@@ -54,13 +65,15 @@
                 margin-right: 5%;
             }
         }
+        
     </style>
-</head>
-<body>
-    <div class="header"></div>
+ 
     <div class="content">
-        <div class="centered-text">
-            <h1>About Me</h1>
+        <div class="header">
+            <h2>About Me</h2>
+        
+            <div class="content">
+                <div class="centered-text">
             <p> Mi nombre es Matías Cereghetti, tengo 35 años y tres décadas de navegación por el delta Argentino, el mundo de la navegación es más que un pasatiempo para mí: es parte de mi vida, mi cable a tierra.
                 Mi relación con el agua comenzó en las encantadoras costas del Río de la Plata y sus secciones del delta. Desde chico he circulado por diferentes ríos, conociendo sus paisajes junto a mi padre y sus encantadoras sorpresas que cada rio brinda.
                 Pero la náutica no es solo navegación. Se trata de la conexión humana, del intercambio de historias y experiencias, de la ayuda mutua y del aprendizaje conjunto. Con este espíritu, he creado un foro para todos los amantes de la náutica.

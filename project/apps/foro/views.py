@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.http import JsonResponse
 from .models import Tema, Comentario
 from .forms import TemaForm, ComentarioForm
 
@@ -60,6 +61,16 @@ def eliminar_comentario(request, comentario_id):
     comentario = get_object_or_404(Comentario, id=comentario_id, usuario=request.user)
     comentario.delete()
     return redirect('detalle_tema', tema_id=comentario.tema.id)
+
+def obtener_temas(request):
+    temas = Tema.objects.all()
+    temas_json = []
+    for tema in temas:
+        temas_json.append({
+            'titulo': tema.titulo,
+            'contenido': tema.contenido
+        })
+    return JsonResponse({'temas':temas_json})
 
 
 # Create your views here.

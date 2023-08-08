@@ -10,4 +10,5 @@ urlpatterns = [
     path('detalle_tema/<int:tema_id>/', views.detalle_tema, name='detalle_tema'),
     path('editar_comentario/<int:comentario_id>/', views.editar_comentario, name='editar_comentario'),
     path('eliminar_comentario/<int:comentario_id>/', views.eliminar_comentario, name='eliminar_comentario'),
+    path('obtener_temas', views.obtener_temas, name='obtener_temas'),
 ]
