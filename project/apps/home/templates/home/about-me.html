@@ -14,7 +14,7 @@
 
         .header {
             height: 33%;
-            background-image: url("foronautas/project/config/static/foro/img/about-me.jpg");
+            background-image: url("../img/about-me.jpg");
             background-size: cover;
             background-position: center;
         }
@@ -47,6 +47,13 @@
             font-size: 16px;
             cursor: pointer;
         }
+        /* Estilos para pantallas pequeñas */
+        @media only screen and (max-width: 600px) {
+            .centered-text {
+                margin-left: 5%;
+                margin-right: 5%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -54,12 +61,20 @@
     <div class="content">
         <div class="centered-text">
             <h1>About Me</h1>
-            <p>y la idea as maravillas de la navegación.</p>
+            <p> Mi nombre es Matías Cereghetti, tengo 35 años y tres décadas de navegación por el delta Argentino, el mundo de la navegación es más que un pasatiempo para mí: es parte de mi vida, mi cable a tierra.
+                Mi relación con el agua comenzó en las encantadoras costas del Río de la Plata y sus secciones del delta. Desde chico he circulado por diferentes ríos, conociendo sus paisajes junto a mi padre y sus encantadoras sorpresas que cada rio brinda.
+                Pero la náutica no es solo navegación. Se trata de la conexión humana, del intercambio de historias y experiencias, de la ayuda mutua y del aprendizaje conjunto. Con este espíritu, he creado un foro para todos los amantes de la náutica.
+                Esta comunidad en línea no es solo para compartir información sobre las aguas del Río de la Plata, las novedades del delta, los mares y los lagos argentinos. También es un espacio para aquellos que buscan información sobre servicios navales, ya sean mecánicos, eléctricos, astilleros o recomendaciones en general.
+                El objetivo de este foro es fomentar la educación y el respeto por la navegación y la naturaleza, y brindar un espacio para que las personas compartan su amor por el agua. Quiero que este foro sea un recurso valioso y accesible para todos, desde el navegante novato hasta el veterano experimentado.
+                Mi deseo es que este espacio sirva de puente entre los nautas de diferentes generaciones y niveles de experiencia, para que juntos podamos aprender, crecer y disfrutar de la belleza de la navegación.
+                Nuestro amor por la navegación puede ser lo que nos une, pero es nuestro compromiso con el aprendizaje continuo y el respeto por el agua lo que hace que nuestra comunidad sea fuerte y duradera. Así que ya sea que estés buscando consejos sobre el mejor astillero, una recomendación para un técnico eléctrico de confianza, o simplemente quieras compartir tus experiencias navegando por las majestuosas aguas argentinas, este es el lugar para vos.
+                El potencial que este foro tiene para fortalecer y enriquecer la comunidad náutica, sin dudas dependerá de todos nosotros. Así que, ya seas un navegante experimentado o alguien que simplemente ama la idea de surcar las aguas, te doy la bienvenida a este foro. Juntos, vamos a aprender, compartir y explorar las maravillas de la navegación</p>
         </div>
     </div>
     <div class="footer">
         <ul>
-            <li><a href="home">volver-button</a></li>
+            
+            <a href="javascript:history.back()" class="volver-button">Volver</a>
         </ul>
     </div>
 </body>

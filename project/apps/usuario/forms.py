@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth import password_validation
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import Usuario
 
 class RegistroForm(UserCreationForm):
@@ -16,6 +16,11 @@ class RegistroForm(UserCreationForm):
             raise forms.ValidationError("La contraseña debe contener al menos una mayúscula y una minúscula.")
         password_validation.validate_password(password1, self.instance)
         return password1
+
+class LoginForm(AuthenticationForm):
+    username = forms.CharField()
+    password = forms.CharField(widget=forms.PasswordInput)
+    recordad_sesion = forms.BooleanField(required=False)
 
     class Meta:
         model = Usuario

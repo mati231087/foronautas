@@ -24,9 +24,9 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('admin/', admin.site.urls),
     path('about-me/', TemplateView.as_view(template_name='home/about-me.html'), name='about-me'),
+    path('contacto/', TemplateView.as_view(template_name='home/contact.html'), name='contact'),
     path('administrador/', include('apps.administrador.urls')),  # Agrega esta línea para incluir las URLs de la aplicación 'administrador'
     path('usuario/', include('apps.usuario.urls')),
     path('foro/', include('apps.foro.urls')),
-    
-     # Agrega esta línea para incluir las URLs de la aplicación 'usuario'
+       
 ]

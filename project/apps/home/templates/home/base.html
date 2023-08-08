@@ -16,7 +16,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: #f2f2f2;
+            background-color: blue;
             z-index: 100;
         }
         .navbar ul {
@@ -39,6 +39,7 @@
         }
         .navbar ul li a {
             text-decoration: none;
+            color: white;
         }
         .content {
             margin-top: 70px; /* Espacio para la barra de menú */
@@ -51,12 +52,32 @@
             margin-bottom: 10px;
         }
         .footer {
-            position: absolute; /* Cambiamos la posición a absoluta */
-            bottom: 0; /* Colocamos los elementos al final de la página */
-            left: 0;
-            width: 100%;
-            padding: 20px;
-            text-align: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+        background-color: blue;
+     }
+
+        .footer ul {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        }
+
+        .footer ul li {
+        display: inline-block;
+        margin-right: 10px;
+        }
+
+        .footer ul li a {
+        display: inline-block;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
         }
         .background-image {
             position: absolute; /* Establecemos la posición como absoluta */
@@ -68,6 +89,24 @@
             background-size: cover;
             background-position: center;
         }
+        /* Estilos para pantallas pequeñas */
+        @media only screen and (max-width: 600px) {
+            .title {
+                font-size: 48px; /* Reducimos el tamaño de fuente en pantallas pequeñas */
+            }
+            .navbar ul {
+                height: auto; /* Cambiamos la altura a automática */
+                flex-direction: column; /* Cambiamos la dirección de la flexbox a columna */
+            }
+            .navbar ul li {
+                margin-right: 0; /* Quitamos el margen derecho */
+                margin-bottom: 10px; /* Agregamos un margen inferior */
+            }
+            .footer ul li {
+                margin-right: 0; /* Quitamos el margen derecho */
+                margin-bottom: 10px; /* Agregamos un margen inferior */
+            }
+        }
     </style>
     <title>Document</title>
 </head>
@@ -75,8 +114,9 @@
     <div class="navbar">
         <nav>
             <ul class="right">
-                <li><a href= "/apps/usuario/templates/usuario/iniciar-sesion.html" >Iniciar sesión</a></li>
-                <li><a href="/foronautas/project/apps/usuario/templates/usuario/registro.html">Registrarse"</a></li>
+                <li><a href="/usuario/iniciar-sesion/">Iniciar Sesión</a></li>
+
+               
             </ul>
         </nav>
     </div>
@@ -90,7 +130,7 @@
         <ul>
             <li><a href="{% url 'about-me' %}">About Me</a></li>
 
-            <li><a href="#">Contact</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
         </ul>
     </div>
 

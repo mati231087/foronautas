@@ -5,13 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión</title>
+    <style>
+        /* Estilos CSS aquí */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            background-color: #f0f0f0;
+        }
+        .iniciar-sesion-button,
+        .volver-button {
+            background-color: azure;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+    </style>
 </head>
 <body>
     <h1>Iniciar Sesión</h1>
-    <form method="POST">
+    <form method="POST" id="login-form">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Iniciar sesión</button>
+        {{ form.username.label_tag }}
+        {{ form.username }}
+        {{ form.password.label_tag }}
+        {{ form.password }}
     </form>
+
+    <div class="button-container">
+        <button class="iniciar-sesion-button" onclick="submitForm()">Iniciar sesión</button>
+        <button class="volver-button" onclick="closeWindow()">Volver</button>
+    </div>
+
+    <script>
+        function submitForm() {
+            document.getElementById('login-form').submit();
+            window.close(); // Cierra la ventana emergente después de enviar el formulario
+        }
+
+        function closeWindow() {
+            window.location.href = "/"; 
+        }
+    </script>
 </body>
 </html>
