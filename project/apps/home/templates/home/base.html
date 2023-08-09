@@ -91,6 +91,21 @@
             background-size: cover;
             background-position: center;
         }
+        .tema .info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .tema .info .center {
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .tema .info .center p {
+            margin: 0 10px; /* Ajusta el margen según tus necesidades */
+        }
+        
         /* Estilos para pantallas pequeñas */
         @media only screen and (max-width: 600px) {
             .title {
@@ -113,20 +128,48 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="navbar">
-        <nav>
-            <ul class="right">
-                <li><a href="/usuario/iniciar-sesion/">Iniciar Sesión</a></li>
+<div class="navbar">
+    <nav>
+        <ul class="right">
+            <li class="search-bar">
+                <input type="search" id="search-input" placeholder="Buscar">
+            </li>
+            <li style="margin-left: auto;"><a href="/usuario/iniciar-sesion/">Iniciar Sesión</a></li>
+            <li><a href="/usuario/registro/">Registrarse</a></li>
+        </ul>
+    </nav>
+</div>
 
-               
-            </ul>
-        </nav>
+<div class="content">
+    <h1 class="title" style="font-size: 800%;">Entrenautas</h1>
+    <div class="temas">
+        <div class="tema">
+            <h2 class="titulo">Título del tema</h2>
+            <p class="contenido">Contenido del tema</p>
+            <div class="info">
+                <div class="center">
+                    <p class="autor">Autor del tema</p>
+                    <p class="fecha">Fecha de publicación</p>
+                </div>
+            </div>
+        </div>
+        <div class="tema">
+            <h2 class="titulo">Título del tema</h2>
+            <p class="contenido">Contenido del tema</p>
+            <div class="info">
+                <div class="center">
+                    <p class="autor">Autor del tema</p>
+                    <p class="fecha">Fecha de publicación</p>
+                </div>
+            </div>
+        </div>
+        <!-- Agrega más temas aquí -->
     </div>
+</div>
 
-    <div class="content">
-        <h1 class="title" style="font-size: 800%;">Entrenautas</h1> <!-- Tamaño de fuente aumentado -->
-        <!-- Resto del contenido de la página -->
-    </div>
+
+
+
     <script>
         fetch('/foro/obtener_temas/')
             .then(response => response.json())

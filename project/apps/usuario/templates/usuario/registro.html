@@ -1,17 +1,20 @@
-<!-- register.html -->
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Registro de Usuario</title>
     <link rel="stylesheet" type="text/css" href="styles.css"> <!-- Agrega aquí la ruta correcta a tu archivo de estilos CSS -->
     <style>
-        .container {
+        body {
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             height: 100vh;
+        }
+
+        .container {
+            width: 400px;
+            margin: 0 auto;
+            text-align: left;
         }
     </style>
 </head>
@@ -21,8 +24,18 @@
         <form method="POST">
             {% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" value="Registrarse">
+            <div>
+                <input type="submit" value="Registrarse" class="btn btn-primary" onclick="redirectToBase()"/>
+                <button type="button" class="btn btn-secondary" onclick="closeWindow()">Volver</button>
+            </div>
         </form>
     </div>
+
+
+    <script>
+        function closeWindow() {
+            window.location.href = "/"; 
+        }
+    </script>
 </body>
 </html>

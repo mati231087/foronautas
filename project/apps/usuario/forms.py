@@ -8,7 +8,7 @@ class RegistroForm(UserCreationForm):
     fecha_nacimiento = forms.DateField()
     correo_electronico = forms.EmailField()
     telefono = forms.CharField(max_length=20)
-    usuario = forms.CharField(max_length=255)
+    
 
     def clean_password1(self):
         password1 = self.cleaned_data.get("password1")
@@ -24,4 +24,4 @@ class LoginForm(AuthenticationForm):
 
     class Meta:
         model = Usuario
-        fields = UserCreationForm.Meta.fields + ('nombre_completo', 'fecha_nacimiento', 'correo_electronico', 'telefono', 'usuario')
+        fields = UserCreationForm.Meta.fields + ('nombre_completo', 'fecha_nacimiento', 'correo_electronico', 'telefono')
