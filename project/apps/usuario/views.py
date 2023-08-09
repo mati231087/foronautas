@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from .forms import RegistroForm, LoginForm
 
@@ -25,6 +25,10 @@ def iniciar_sesion(request):
     else:
         form = LoginForm()
     return render(request, 'usuario/iniciar-sesion.html', {'form': form})
+
+def cerrar_sesion(request):
+    logout(request)
+    return redirect('/')
 
 
 # Create your views here.

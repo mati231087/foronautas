@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear Tema</title>
+</head>
+<body>
+    <h1>Crear Tema</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Crear Tema</button>
+    </form>
+</body>
+</html>

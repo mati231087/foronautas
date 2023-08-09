@@ -82,12 +82,12 @@
         border-radius: 5px;
         }
         .background-image {
-            position: absolute; /* Establecemos la posición como absoluta */
+            position: absolute; 
             top: 0;
             left: 0;
             width: 100%;
-            height: 25vh; /* Establecemos la altura al 25% de la ventana del navegador */
-            background-image: url("{% static 'foro/img/home-bg.jpg' %}"); /* Reemplaza 'ruta/imagen.jpg' con la ruta de tu imagen de fondo */
+            height: 25vh; 
+            background-image: url("{% static 'foro/img/home-bg.jpg' %}"); 
             background-size: cover;
             background-position: center;
         }
@@ -103,25 +103,25 @@
         }
         
         .tema .info .center p {
-            margin: 0 10px; /* Ajusta el margen según tus necesidades */
+            margin: 0 10px; 
         }
         
         /* Estilos para pantallas pequeñas */
         @media only screen and (max-width: 600px) {
             .title {
-                font-size: 48px; /* Reducimos el tamaño de fuente en pantallas pequeñas */
+                font-size: 48px; 
             }
             .navbar ul {
-                height: auto; /* Cambiamos la altura a automática */
-                flex-direction: column; /* Cambiamos la dirección de la flexbox a columna */
+                height: auto; 
+                flex-direction: column; 
             }
             .navbar ul li {
-                margin-right: 0; /* Quitamos el margen derecho */
-                margin-bottom: 10px; /* Agregamos un margen inferior */
+                margin-right: 0; 
+                margin-bottom: 10px; 
             }
             .footer ul li {
-                margin-right: 0; /* Quitamos el margen derecho */
-                margin-bottom: 10px; /* Agregamos un margen inferior */
+                margin-right: 0; 
+                margin-bottom: 10px;
             }
         }
     </style>
@@ -166,8 +166,6 @@
         <!-- Agrega más temas aquí -->
     </div>
 </div>
-
-
 
 
     <script>
