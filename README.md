@@ -29,7 +29,6 @@ creado el back con sus codigos para el foro
 
 en proceso el back administrador
 
-errores actuales: el formulario de nuevo usuario, al validar con el boton registrarse, no redirecciona a la pagina de inicio. lo mismo con el login de un usuario registrado.
-
+errores actuales: el login de un usuario registrdo no redirecciona a la pagina de inicio
 en proceso de construccion, la estructura estetica del foro. Tratando de entender bootstrap y su adhesion al codigo.
 
