@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            position: relative; /* Agregamos posición relativa al body */
+            min-height: 100vh; /* Establecemos una altura mínima del viewport */
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: blue;
+            z-index: 100;
+        }
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-between; /* Alineación a la izquierda y a la derecha */
+            align-items: center;
+            height: 50px;
+        }
+        .navbar ul.right {
+            justify-content: flex-end; /* Alineación a la derecha */
+        }
+        .navbar ul li {
+            margin-right: 10px;
+        }
+        .navbar ul li:last-child {
+            margin-right: 0;
+        }
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+        }
+        .content {
+            margin-top: 70px; /* Espacio para la barra de menú */
+            text-align: center;
+            padding-bottom: 100px; /* Agregamos un espacio en la parte inferior para los elementos del pie de página */
+            position: relative; /* Agregamos posición relativa */
+        }
+        .title {
+            font-size: 96px; /* Tamaño de fuente aumentado */
+            margin-bottom: 10px;
+        }
+        .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+        background-color: blue;
+     }
+
+        .footer ul {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        }
+
+        .footer ul li {
+        display: inline-block;
+        margin-right: 10px;
+        }
+
+        .footer ul li a {
+        display: inline-block;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        }
+        .background-image {
+            position: absolute; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 25vh; 
+            background-image: url("{% static 'foro/img/home-bg.jpg' %}"); 
+            background-size: cover;
+            background-position: center;
+        }
+        .tema .info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .tema .info .center {
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .tema .info .center p {
+            margin: 0 10px; 
+        }
+        
+        /* Estilos para pantallas pequeñas */
+        @media only screen and (max-width: 600px) {
+            .title {
+                font-size: 48px; 
+            }
+            .navbar ul {
+                height: auto; 
+                flex-direction: column; 
+            }
+            .navbar ul li {
+                margin-right: 0; 
+                margin-bottom: 10px; 
+            }
+            .footer ul li {
+                margin-right: 0; 
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+<div class="navbar">
+    <nav>
+        <ul class="right">
+            <li class="search-bar">
+                <input type="search" id="search-input" placeholder="Buscar">
+            </li>
+            <li style="margin-left: auto;"><a href="/usuario/iniciar-sesion/">Iniciar Sesión</a></li>
+            <li><a href="/usuario/registro/">Registrarse</a></li>
+        </ul>
+    </nav>
+</div>
+
+<div class="content">
+    <h1 class="title" style="font-size: 800%;">Entrenautas</h1>
+    <div class="temas">
+        <div class="tema">
+            <h2 class="titulo">Título del tema</h2>
+            <p class="contenido">Contenido del tema</p>
+            <div class="info">
+                <div class="center">
+                    <p class="autor">Autor del tema</p>
+                    <p class="fecha">Fecha de publicación</p>
+                </div>
+            </div>
+        </div>
+        <div class="tema">
+            <h2 class="titulo">Título del tema</h2>
+            <p class="contenido">Contenido del tema</p>
+            <div class="info">
+                <div class="center">
+                    <p class="autor">Autor del tema</p>
+                    <p class="fecha">Fecha de publicación</p>
+                </div>
+            </div>
+        </div>
+        <!-- Agrega más temas aquí -->
+    </div>
+</div>
+
+
+    <script>
+        fetch('/foro/obtener_temas/')
+            .then(response => response.json())
+            .then(data => {
+                const temas = data.temas;
+                const body = document.querySelector('.content');
+                temas.forEach(tema => {
+                    const titulo = document.createElement('h2');
+                    titulo.textContent = tema.titulo;
+                    body.appendChild(titulo);
+
+                    const contenido = document.createElement('p');
+                    contenido.textContent = tema.contenido;
+                    body.appendChild(contenido);
+
+                    // Agrega aquí la lógica para mostrar los demás campos del tema
+                });
+            });
+    </script>
+    <div class="footer">
+        <ul>
+            <li><a href="{% url 'about-me' %}">About Me</a></li>
+
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+    </div>
+
+</body>
+</html>
+
+

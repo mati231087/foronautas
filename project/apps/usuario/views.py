@@ -30,5 +30,6 @@ def cerrar_sesion(request):
     logout(request)
     return redirect('/')
 
-
+def index(request):
+    return render(request, 'home/base-logged.html')
 # Create your views here.

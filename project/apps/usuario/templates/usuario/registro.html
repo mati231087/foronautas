@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>Registro de Usuario</title>
-    <link rel="stylesheet" type="text/css" href="styles.css"> <!-- Agrega aquí la ruta correcta a tu archivo de estilos CSS -->
     <style>
         body {
             display: flex;
@@ -16,26 +15,50 @@
             margin: 0 auto;
             text-align: left;
         }
+
+        .mensaje-usuario-creado {
+            color: green;
+            font-size: 18px;
+            background-color: lightgreen;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Registro de Usuario</h1>
-        <form method="POST">
+        <form method="POST" onsubmit="mostrarMensajeUsuarioCreado(event)">
             {% csrf_token %}
             {{ form.as_p }}
             <div>
-                <input type="submit" value="Registrarse" class="btn btn-primary" onclick="redirectToBase()"/>
+                <input type="submit" value="Registrarse" class="btn btn-primary" />
                 <button type="button" class="btn btn-secondary" onclick="closeWindow()">Volver</button>
             </div>
         </form>
+
+        <div id="mensajeUsuarioCreado" class="mensaje-usuario-creado" style="display: none;">
+            Usuario creado
+        </div>
     </div>
 
-
     <script>
+        function mostrarMensajeUsuarioCreado(event) {
+            event.preventDefault(); 
+
+            var mensajeUsuarioCreado = document.getElementById("mensajeUsuarioCreado");
+            mensajeUsuarioCreado.style.display = "block"; // Muestra el mensaje de "Usuario creado"
+
+            setTimeout(function() {
+                window.location.href = "/"; // Redirige a la página base-logged después de 2 segundos
+            }, 2000);
+        }
+
         function closeWindow() {
-            window.location.href = "/"; 
+            window.location.href = "/";
         }
     </script>
 </body>
 </html>
+
